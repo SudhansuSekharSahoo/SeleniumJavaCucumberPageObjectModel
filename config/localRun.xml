@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LoginTest" parallel="tests" thread-count="2">
+
+	<test name="FacebookLogin1">
+<parameter name="myBrowser" value="chrome"></parameter>
+<parameter name="tags" value="@test123"></parameter>
+		<classes>
+			<class name="com.stepdef.RunnerTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
