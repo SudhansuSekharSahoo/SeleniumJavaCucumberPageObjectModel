@@ -1,3 +1,4 @@
+@test
 Feature: Login to Facebook page test
 
   Scenario: user able to login to Facebook page page using correct credentials

@@ -3,8 +3,8 @@
 <suite name="LoginTest" parallel="tests" thread-count="2">
 
 	<test name="FacebookLogin1">
-<parameter name="myBrowser" value="chrome"></parameter>
-<parameter name="tags" value="@test123"></parameter>
+<parameter name="myBrowser" value="firefox"></parameter>
+
 		<classes>
 			<class name="com.stepdef.RunnerTest" />
 		</classes>

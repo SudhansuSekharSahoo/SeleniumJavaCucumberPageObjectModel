@@ -14,20 +14,7 @@ public class commonUtilities extends TestBase {
 	public static Properties properties;
 
 	public static void openURL() {
-		TestBase.webDriverSetup("chrome");
-		TestBase.driver.get(commonUtilities.properties.getProperty("qaurl"));
-	}
-
-	public static void getPropertiesFile(String pathOFile) throws Exception {
-		File file = new File(pathOFile);
-		if (file.getName().endsWith(".properties")) {
-			properties = new Properties();
-			InputStream fis = null;
-			fis = new FileInputStream(file);
-			properties.load(fis);
-		} else {
-			throw new Exception("Properties file not found");
-		}
+		TestBase.driver.get(TestBase.properties.getProperty("qaurl"));
 	}
 
 	public static void sendTextToField(WebElement element, String text) {

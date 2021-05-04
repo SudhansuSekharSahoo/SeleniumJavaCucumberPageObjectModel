@@ -4,29 +4,24 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import com.facebook.utility.TestBase;
+import com.facebook.utility.commonUtilities;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class hooks extends TestBase {
+public class hooks {
 
 	@Before
-	
-	public void setUp() {
-		//Can be used to inizilize database connection, SauceLab/Broswer stack connection
-		System.out.println("Before hook");
+	public void openBrowser() {
+		TestBase.intilize();
+		TestBase.initDriver(TestBase.properties.getProperty("browser"));
 	}
-	
-	
-	@After
-		public void tearDown(Scenario scenario) {
-		   // if (scenario.isFailed()) {
-		            //final byte[] screenshot = ((TakesScreenshot) TestBase.driver)
-		                       // .getScreenshotAs(OutputType.BYTES);
-		           // scenario.attach(screenshot, null, null); //stick it in the report
-		   // }
-		    driver.quit();;
-		}
-    }
 
+	@After
+	public void tearDown(Scenario scenario) {
+		
+		TestBase.driver.quit();
+
+	}
+}
