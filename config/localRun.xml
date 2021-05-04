@@ -4,6 +4,7 @@
 
 	<test name="FacebookLogin1">
 <parameter name="myBrowser" value="chrome"></parameter>
+<parameter name="tags" value="@test123"></parameter>
 		<classes>
 			<class name="com.stepdef.RunnerTest" />
 		</classes>
