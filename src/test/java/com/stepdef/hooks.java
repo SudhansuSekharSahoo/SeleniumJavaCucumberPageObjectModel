@@ -14,14 +14,14 @@ public class hooks {
 
 	@Before
 	public void openBrowser() {
-		TestBase.intilize();
-		TestBase.initDriver(TestBase.properties.getProperty("browser"));
+		TestBase.loadProperties();
+		TestBase.initDriver();
 	}
 
 	@After
 	public void tearDown(Scenario scenario) {
-		
-		TestBase.driver.quit();
-
+		if(scenario.isFailed()) {
+			TestBase.driver.quit();
+		}
 	}
 }

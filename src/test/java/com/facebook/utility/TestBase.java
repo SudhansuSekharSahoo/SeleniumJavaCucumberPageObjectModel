@@ -15,11 +15,16 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class TestBase {
+	/*
+	 * TestBase is used to initialize and load the properties file. Driver initialize is done here, which
+	 * will read what is the browser is invoked after reading the browser type
+	 * from the properties file. 
+	 */
 
 	public static WebDriver driver;
 	public static Properties properties = null;
 
-	public static void intilize() {
+	public static void loadProperties() {
 		File file = new File(System.getProperty("user.dir") + "/src/test/resources/qa/TestData.properties");
 		if (file.getName().endsWith(".properties")) {
 			properties = new Properties();
@@ -39,16 +44,17 @@ public class TestBase {
 		}
 	}
 
-	public static void initDriver(String browser) {
-		if (browser.equalsIgnoreCase("chrome")) {
+	@Parameters("browser")
+	public static void initDriver() {
+		String BROWSER_RESOURCE = TestBase.properties.getProperty("browser");
+		if (BROWSER_RESOURCE.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-notifications");
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/lib/chromedriver.exe");
 			driver = new ChromeDriver(options);
-		}else if(browser.equalsIgnoreCase("firefox")) {
+		}else if(BROWSER_RESOURCE.equalsIgnoreCase("firefox")) {
 			System.out.println("Firefox");
 		}
-
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 	}
