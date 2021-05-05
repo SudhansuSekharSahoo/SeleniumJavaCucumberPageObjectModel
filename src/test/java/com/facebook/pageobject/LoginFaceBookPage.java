@@ -76,9 +76,10 @@ public class LoginFaceBookPage extends TestBase implements launchBrowser {
 		commonUtilities.openURL();
 	}
 
-	public void enterUserNameAndPassword() {
-		commonUtilities.sendTextToField(txtBxUsername, commonUtilities.properties.getProperty("username"));
-		commonUtilities.sendTextToField(getPassword(), commonUtilities.properties.getProperty("password"));
+	public void enterUserNameAndPassword(String username, String password) {
+		commonUtilities.sendTextToField(getuserName(), username);
+		commonUtilities.sendTextToField(getPassword(), password);
+		
 	}
 
 	public void clickLogInBtn() {

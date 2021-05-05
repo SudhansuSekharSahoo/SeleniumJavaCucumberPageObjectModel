@@ -1,5 +1,7 @@
 package com.stepdef;
 
+import java.util.Map;
+
 import org.testng.annotations.Test;
 
 import com.facebook.pageobject.LoginFaceBookPage;
@@ -17,24 +19,20 @@ public class LoginFacebookStepDef {
 		LoginFaceBookPage facebookloginPage = new LoginFaceBookPage(TestBase.driver);
 		facebookloginPage.launch();
 	}
-
-	@When("^user enters username and password as credential$")
-	public void user_enters_username_and_password_as_credential() throws Throwable {
+	@When("user enters username and password as credential")
+	public void user_enters_username_and_password_as_credential(Map<String,String> credentials) {
 		LoginFaceBookPage facebookloginPage = new LoginFaceBookPage(TestBase.driver);
-		facebookloginPage.enterUserNameAndPassword();
-		facebookloginPage.clickLogInBtn();
+		facebookloginPage.enterUserNameAndPassword(credentials.get("username"), credentials.get("password"));
 	}
+	
 
 	@Then("user sees the facebook homepage")
 	public void user_sees_the_facebook_homepage() {
-		LoginFaceBookPage facebookloginPage = new LoginFaceBookPage(TestBase.driver);
-		facebookloginPage.verifyFaceBookHomePageDisplayed();
+		
 	}
 	
 	@Then("user post the status message")
 	public void postStatusMessage() {
-		LoginFaceBookPage facebookloginPage = new LoginFaceBookPage(TestBase.driver);
-		facebookloginPage.postStatusMessage();
 	}
 	
 }
