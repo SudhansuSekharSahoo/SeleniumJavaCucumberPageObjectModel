@@ -48,15 +48,13 @@ public class TestBase {
 	public static void initDriver() {
 		String BROWSER_RESOURCE = TestBase.properties.getProperty("browser");
 		if (BROWSER_RESOURCE.equalsIgnoreCase("chrome")) {
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--disable-notifications");
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/lib/chromedriver.exe");
-			driver = new ChromeDriver(options);
+			driver = new ChromeDriver();
 		}else if(BROWSER_RESOURCE.equalsIgnoreCase("firefox")) {
 			System.out.println("Firefox");
 		}
 		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
+		//driver.manage().deleteAllCookies();
 	}
 
 }

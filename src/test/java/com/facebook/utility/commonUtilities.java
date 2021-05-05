@@ -14,6 +14,7 @@ public class commonUtilities extends TestBase {
 
 	public static void openURL() {
 		TestBase.driver.get(TestBase.properties.getProperty("qaurl"));
+		waitTillPageLoad();
 	}
 
 	public static void sendTextToField(WebElement element, String text) {
@@ -22,7 +23,7 @@ public class commonUtilities extends TestBase {
 		element.sendKeys(text);
 	}
 
-	public static void clickButton(WebElement element) {
+	public static void click(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(TestBase.driver, 20, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();

@@ -23,5 +23,7 @@ public class hooks {
 		if(scenario.isFailed()) {
 			TestBase.driver.quit();
 		}
+		
+		TestBase.driver.quit();
 	}
 }

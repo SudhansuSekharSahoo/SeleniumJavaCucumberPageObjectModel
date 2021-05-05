@@ -12,4 +12,8 @@ public class AssertUtils {
 			Assert.assertTrue(element.isDisplayed());
 		}
 	}
+	
+	public static void assertTextMatches(final WebElement element, String text) {
+		Assert.assertEquals(element.getText().trim(), text);
+	}
 }
